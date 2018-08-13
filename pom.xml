@@ -9,7 +9,7 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>JUsecase</name>
+    <name>JUsecase Test</name>
     <description>Java framework for a usecase centric architecture as proposed by Uncle Bob and others. Supports Java 1.6+.</description>
     <url>http://jusecase.org</url>
     <developers>
