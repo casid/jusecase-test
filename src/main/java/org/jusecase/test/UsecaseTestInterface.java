@@ -1,15 +1,15 @@
 package org.jusecase.test;
 
-import net.jodah.typetools.TypeResolver;
+import org.jusecase.util.GenericTypeResolver;
 
 public abstract class UsecaseTestInterface<Request> {
     protected Request request;
     protected Throwable error;
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({"unchecked", "ConstantConditions"})
     public void createRequest() {
         try {
-            Class<?> requestClass = TypeResolver.resolveRawArguments(UsecaseTestInterface.class, getClass())[0];
+            Class<?> requestClass = GenericTypeResolver.resolve(UsecaseTestInterface.class, getClass(), 0);
             request = (Request) requestClass.getConstructor().newInstance();
         } catch (Exception e) {
             throw new RuntimeException("Failed to instantiate request. You need to override createRequest() and do it manually.", e);
